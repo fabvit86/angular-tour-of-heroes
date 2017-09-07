@@ -81,7 +81,8 @@ export class AppComponent implements OnInit{
   
   // get the array of heros from calling getHeroes() on the istance of HeroService service:
   getHeroes(): void { 
-    this.heroes = this.heroService.getHeroes()
+    // heroService.getHeroes() returns a Promise. When it resolves, the callback assign the heroes array to this.heroes:
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes)
   }
 
   // everything inside ngOnInit will be called when the component is initialized:
