@@ -1,10 +1,12 @@
 import { Component } from '@angular/core'
 
+// main, router component:
 @Component({
   selector: 'app-root',
   template: `
     <h1>{{title}}</h1>
-    <my-heroes></my-heroes>
+    <a routerLink="/heroes">Heroes</a>    
+    <router-outlet></router-outlet>
   `,
 })
 
