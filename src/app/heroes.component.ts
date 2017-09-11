@@ -84,7 +84,7 @@ export class HeroesComponent implements OnInit{
 
   // everything inside ngOnInit will be called when the component is initialized:
   ngOnInit(): void {
-    this.getHeroes()
+    this.getHeroes() // call the internal getHeroes() method
   }
 
   // hero click handler:
