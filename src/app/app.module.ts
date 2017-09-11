@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms' // ngModel
 import { RouterModule } from '@angular/router' // routing
 
 import { AppComponent } from './app.component'
+import { DashboardComponent } from './dashboard.component'
 import { HeroDetailComponent } from './hero-detail.component'
 import { HeroesComponent } from './heroes.component'
 
@@ -13,6 +14,7 @@ import { HeroService } from './hero.service'
   // list of application components, pipes, and directives that belong to the module:
   declarations: [
     AppComponent,
+    DashboardComponent,
     HeroDetailComponent,
     HeroesComponent
   ],
@@ -21,6 +23,15 @@ import { HeroService } from './hero.service'
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
+      { // redirecting route, redirects from '' to '/dashboard':
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
       {
         path: 'heroes', // url
         component: HeroesComponent // component that will be created when navigating to this route
