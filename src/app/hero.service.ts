@@ -10,6 +10,13 @@ export class HeroService {
     return Promise.resolve(HEROES)
   }
 
+  // return the Hero with that has given id, filtering the list returned by getHeroes():
+  getHero(id: number): Promise<Hero> {
+    return this.getHeroes()
+      .then(heroes => heroes.find(hero => hero.id === id))
+  }
+
+  // test method:
   getHeroesSlowly(): Promise<Hero[]> {
     return new Promise(resolve => {
       // 2 second latency delay server simulation, resolve the promise after 2 seconds:

@@ -35,6 +35,10 @@ import { HeroService } from './hero.service'
       {
         path: 'heroes', // url
         component: HeroesComponent // component that will be created when navigating to this route
+      },
+      {
+        path: 'detail/:id', // url with a variable parameter (id)
+        component: HeroDetailComponent
       }
     ])
   ],
