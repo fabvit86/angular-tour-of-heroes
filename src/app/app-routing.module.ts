@@ -1,6 +1,6 @@
 // this module defines the routes
-import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'; // routing
+import { NgModule }             from '@angular/core'
+import { RouterModule, Routes } from '@angular/router' // routing
 
 import { DashboardComponent } from './dashboard.component'
 import { HeroDetailComponent } from './hero-detail.component'
