@@ -6,11 +6,12 @@ import { Location }                 from '@angular/common'
 import 'rxjs/add/operator/switchMap'
 
 import { Hero }        from './hero'
-import { HeroService } from './hero.service';
+import { HeroService } from './hero.service'
 
 @Component({
   selector: 'hero-detail',
-  templateUrl: './hero-detail.component.html'
+  templateUrl: './hero-detail.component.html',
+  styleUrls: [ './hero-detail.component.css' ]
 })
 
 export class HeroDetailComponent implements OnInit {
@@ -19,6 +20,8 @@ export class HeroDetailComponent implements OnInit {
     private route: ActivatedRoute, // service that has the parameters of 
     private location: Location
   ) {}
+
+  hero: Hero
 
   // take the id parameter from the paramMap Observable in the ActivatedRoute service and use the HeroService to fetch the hero with that id:
   ngOnInit(): void {
@@ -37,5 +40,5 @@ export class HeroDetailComponent implements OnInit {
   }
 
   // dichiarando input, la propietà è public e un component parent può farci binding:
-  @Input() hero: Hero
+  // @Input() hero: Hero
 }

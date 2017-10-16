@@ -6,7 +6,8 @@ import { HeroService } from './hero.service'
 
 @Component({
   selector: 'my-dashboard',
-  templateUrl: './dashboard.component.html' // reference to an html template contained another file
+  templateUrl: './dashboard.component.html', // reference to an html template contained another file
+  styleUrls: [ './dashboard.component.css' ]
 })
 
 export class DashboardComponent implements OnInit {
