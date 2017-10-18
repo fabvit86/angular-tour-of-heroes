@@ -23,19 +23,24 @@ export class HeroService {
       .catch(this.handleError)
   }
 
+  // return the Hero that has given id, calling api/heroes/:id:
+  getHero(id: number): Promise<Hero> {
+    const heroUrl = `${this.heroesUrl}/${id}`
+    return this.http.get(heroUrl)
+      .toPromise()
+      .then(response => response.json() as Hero)
+      .catch(this.handleError)
+    // return this.getHeroes()
+    //   .then(heroes => heroes.find(hero => hero.id === id))
+  }
+
   // method to handle errors:
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error)
     return Promise.reject(error.message || error)
   }
 
-  // return the Hero with that has given id, filtering the list returned by getHeroes():
-  getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
-      .then(heroes => heroes.find(hero => hero.id === id))
-  }
-
-  // test method:
+  // TEST method:
   getHeroesSlowly(): Promise<Hero[]> {
     return new Promise(resolve => {
       // 2 second latency delay server simulation, resolve the promise after 2 seconds:
