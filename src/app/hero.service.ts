@@ -44,6 +44,14 @@ export class HeroService {
       .catch(this.handleError)
   }
 
+  // create a new hero using http post:
+  create(name: String): Promise<Hero> {
+    return this.http.post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json() as Hero[])
+      .catch(this.handleError)
+  }
+
   // method to handle errors:
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error)

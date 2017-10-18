@@ -27,6 +27,17 @@ export class HeroesComponent implements OnInit{
     this.heroService.getHeroes().then(heroes => this.heroes = heroes)
   }
 
+  // add a new hero, using the hero service create() method:
+  add(name: String): void {
+    name = name.trim()
+    if (!name) return
+    this.heroService.create(name)
+      .then(hero => {
+        this.heroes.push(hero) // add the hero to the array of heroes
+        this.selectedHero = null // de-select selected hero
+      })
+  }
+
   // everything inside ngOnInit will be called when the component is initialized:
   ngOnInit(): void {
     this.getHeroes() // call the internal getHeroes() method
