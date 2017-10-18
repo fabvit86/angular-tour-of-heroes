@@ -13,7 +13,7 @@ import { Router } from '@angular/router'
 })
 export class HeroesComponent implements OnInit{
   // component properties:
-  heroes: Hero[]
+  heroes: Hero[] // current list of heroes for the view
   selectedHero: Hero // specify that selectedHero is an instance of the Hero class
 
   constructor(
@@ -35,6 +35,17 @@ export class HeroesComponent implements OnInit{
       .then(hero => {
         this.heroes.push(hero) // add the hero to the array of heroes
         this.selectedHero = null // de-select selected hero
+      })
+  }
+
+  // delete a hero, using the hero service delete() method:
+  delete(hero: Hero):void {
+    this.heroService.delete(hero.id)
+      .then(() => {
+        // delete the hero from the array of heroes, recreating an array that does not contain it:
+        this.heroes = this.heroes.filter(currentHero => currentHero !== hero)
+        // if the hero to delete is selected, de-select it:
+        if (this.selectedHero === hero) this.selectedHero = null
       })
   }
 
