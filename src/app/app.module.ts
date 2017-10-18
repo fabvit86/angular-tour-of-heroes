@@ -8,6 +8,7 @@ import { AppComponent } from './app.component'
 import { DashboardComponent } from './dashboard.component'
 import { HeroDetailComponent } from './hero-detail.component'
 import { HeroesComponent } from './heroes.component'
+import { HeroSearchComponent } from './hero-search.component'
 import { HeroService } from './hero.service'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -22,7 +23,8 @@ import { InMemoryDataService }  from './in-memory-data.service'
     AppComponent,
     DashboardComponent,
     HeroDetailComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroSearchComponent
   ],
   // list of the external modules imported and used by the app:
   imports: [
