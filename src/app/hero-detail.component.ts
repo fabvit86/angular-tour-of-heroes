@@ -39,6 +39,12 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  // update an hero's details using the update() method from the hero service:
+  save(): void {
+    this.heroService.update(this.hero)
+      .then(() => this.goBack()) // go back after the update
+  }
+
   // dichiarando input, la propietà è public e un component parent può farci binding:
   // @Input() hero: Hero
 }

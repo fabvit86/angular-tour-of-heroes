@@ -7,6 +7,7 @@ import { Hero } from './hero'
 
 @Injectable()
 export class HeroService {
+  private headers = new Headers({'Content-Type': 'application/json'})
   private heroesUrl = 'api/heroes'
 
   constructor(private http: Http) { }
@@ -32,6 +33,15 @@ export class HeroService {
       .catch(this.handleError)
     // return this.getHeroes()
     //   .then(heroes => heroes.find(hero => hero.id === id))
+  }
+
+  // update an hero using http put:
+  update(hero: Hero): Promise<Hero> {
+    const heroUrl = `${this.heroesUrl}/${hero.id}`
+    return this.http.put(heroUrl, JSON.stringify(hero), {headers: this.headers})
+      .toPromise()
+      .then(() => hero)
+      .catch(this.handleError)
   }
 
   // method to handle errors:
